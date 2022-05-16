@@ -1,6 +1,6 @@
 # Twind x Next.js
 
-Getting [Tailwind](https://tailwindcss.com/) and [Twind](https://twind.dev/) to work with [Next.js](https://nextjs.org/) (v10).
+Getting [Twind](https://twind.dev/) to work with [Next.js](https://nextjs.org/) (v10).
 
 ## Goal
 
@@ -10,83 +10,9 @@ Getting [Tailwind](https://tailwindcss.com/) and [Twind](https://twind.dev/) to 
 ## Versions
 
 - [Next.js](https://nextjs.org/), `v10.0.0`
-- [Tailwind](https://tailwindcss.com/), `v3.*`
 - [Twind](https://twind.dev/), `v0.16.16`
 
 ## Setup
-
-### Setting up Tailwind
-
-Ensure your project has the correct Tailwind dependencies:
-
-```sh
-npm install -D tailwindcss postcss autoprefixer
-```
-
-```sh
-npx tailwindcss init -p
-```
-
-**Create a `tailwind.config.js` file.** at the root of your project. If your project already has a `tailwind.config.js` file, you can skip this step.
-
-```js
-// tailwind.config.js
-module.exports = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-  ],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-};
-```
-
-This is the **standard setup** based on the [Tailwind documentation](https://tailwindcss.com/docs/guides/nextjs).
-
-### Loading Tailwind styles
-
-Add the following to your `globals.css`.
-
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-```
-
-### Check if Tailwind is working
-
-Add some Tailwind classes to a simple test page and fire up your Next.js.
-
-(We're just working with Tailwind at this point. No Twind yet.)
-
-If it's working, you can skip the next step. Otherwise...
-
-### Setup PostCSS Import
-
-This step may be necessary to [get Tailwind working for Next.js V10](https://stackoverflow.com/questions/69193396/tailwindcss-directives-not-working-with-style-file-outside-of-project).
-
-Install `postcss-import`:
-
-```
-npm install -D postcss-import
-```
-
-Add the following to your project's `postcss.config.js`. Create this file if you don't have one at the root of your project.
-
-```js
-// postcss.config.js
-const { join } = require('path');
-
-module.exports = {
-  plugins: {
-    'postcss-import': {},
-    tailwindcss: { config: join(__dirname, 'tailwind.config.js') },
-    autoprefixer: {},
-  },
-};
-```
 
 ### Setting up Twind
 
